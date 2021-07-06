@@ -12,11 +12,15 @@ ENV ADDITIONAL_PACKAGES ""
 
 RUN apt-get update \
     && apt-get install -y \
+        apt-transport-https \
+        ca-certificates \
         curl \
-        sudo \
         git \
-        jq \
+        gnupg2 \
         iputils-ping \
+        jq \
+        sudo \
+        tar \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && useradd -m github \
