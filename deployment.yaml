@@ -15,6 +15,7 @@ spec:
       labels:
         app: runner
     spec:
+      serviceAccountName: github-runner
       containers:
       - name: runner
         image: ministryofjustice/cloud-platform-github-runner:2.278.0-2
@@ -23,8 +24,8 @@ spec:
           value: ministryofjustice
         - name: GITHUB_REPOSITORY
           value: cloud-platform-github-runner
-        - name: GITHUB_PERSONAL_TOKEN 
+        - name: GITHUB_TOKEN 
           valueFrom:
             secretKeyRef:
               name: github-token
-              key: GITHUB_PERSONAL_TOKEN
+              key: GITHUB_TOKEN
