@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: runner
+  namespace: github-runner
+  labels:
+    app: runner
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: runner
+  template:
+    metadata:
+      labels:
+        app: runner
+    spec:
+      serviceAccountName: github-runner
+      containers:
+      - name: runner
+        image: ministryofjustice/cloud-platform-github-runner:2.278.0-2
+        env:
+        - name: GITHUB_OWNER
+          value: ministryofjustice
+        - name: GITHUB_REPOSITORY
+          value: cloud-platform-github-runner
+        - name: GITHUB_TOKEN 
+          valueFrom:
+            secretKeyRef:
+              name: github-token
+              key: GITHUB_TOKEN
