@@ -1,0 +1,13 @@
+on:
+  pull_request:
+    types: [opened, edited]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create k8s Kind Cluster
+        uses: helm/kind-action@v1.2.0
+      - name: Test
+        run: |
+          kubectl cluster-info
