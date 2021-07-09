@@ -19,6 +19,9 @@ spec:
       containers:
       - name: runner
         image: ministryofjustice/cloud-platform-github-runner:2.278.0-4
+        volumeMounts:
+        - name: dockersock
+          mountPath: "/var/run/docker.sock"
         env:
         - name: GITHUB_OWNER
           value: ministryofjustice
@@ -29,3 +32,8 @@ spec:
             secretKeyRef:
               name: github-token
               key: GITHUB_TOKEN
+      volumes:
+      - hostPath:
+          path: /var/run/docker.sock
+          type: File
+        name: dockersock
