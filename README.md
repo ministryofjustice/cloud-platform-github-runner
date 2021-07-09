@@ -13,4 +13,5 @@ and deploy the runner
 ```
 kubectl apply -f ./deployment.yaml
 ```
+
 The runner service account will most likely need to be added to the `default:privileged` clusterrolebinding
