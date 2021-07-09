@@ -18,7 +18,7 @@ spec:
       serviceAccountName: github-runner
       containers:
       - name: runner
-        image: ministryofjustice/cloud-platform-github-runner:2.278.0-2
+        image: ministryofjustice/cloud-platform-github-runner:2.278.0-4
         env:
         - name: GITHUB_OWNER
           value: ministryofjustice
