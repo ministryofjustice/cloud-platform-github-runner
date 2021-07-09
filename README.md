@@ -5,6 +5,7 @@ Borrowing from https://github.com/SanderKnape/github-runner and https://caylent.
 To run, create the ns `github-runner`, then
 
 create a repo token via Settings->Actions->Runners or https://docs.github.com/en/rest/reference/actions#self-hosted-runners
+
 ```
 kubectl -n github-runner create secret generic github-token --from-literal=GITHUB_TOKEN=xxx
 
